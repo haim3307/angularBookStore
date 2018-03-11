@@ -1,0 +1,78 @@
+<div id="homePage" (scroll)="fixNav()">
+  <div id="allFilterSorts">
+    <app-sort-nav [mode]="0" [yearsList]="listsSer.yearsList" [categories]="listsSer.categories" [authorsList]="listsSer.authorsList" [booksById]="listsSer.booksById"></app-sort-nav>
+
+    <div class="selectedAuthors" style="direction: rtl">
+      <h2 style="color: #ffffff; padding: 10px 10px;">סופרים נבחרים</h2>
+      <hr>
+      <div *ngFor="let author of listsSer.authorsList"
+           style="background-color:rgba(210,210,210,0.7); margin-top: 10px;">
+        <div style="padding: 10px 10px;"  (click)="listsSer.expandAutInfo(author)">{{author.name}}</div>
+
+         <div class="expandedProfile" *ngIf="author.expand" >
+          <div (click)="listsSer.expandAutInfo(author)" style="background-color: chartreuse; padding: 10px 10px;">מזער</div>
+          <div style="padding: 10px 10px;">
+            <h3>{{author.authorData.name}}</h3> <img class="profileIMG" src="assets/_img/authors/{{author.authorData.profile}}" alt="">
+            <p>  {{author.authorData.yearOfBorn}}  </p>
+            <p> {{author.authorData.desc}}  </p>
+            <a href="#top" [routerLink]="['/author', author.authorData.id]" (click)="toTop()" >קרא עוד..</a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <div id="selfContainer1" *ngIf="!(sort.search.name.length > 0)">
+    <div *ngFor="let special of specials">
+      <ul id="{{special.id}}" class="list">
+        <h4 align="right">{{special.title}}
+          <hr width="70%" style="margin: 10px auto 0 auto">
+        </h4>
+        <li class="bigSize" *ngFor="let book of listsSer.books | BooksByCategoryPipe: [special.orderBy] | stockOnly:sort.InStockOnly |  limitTo: [0,7] " >
+          <app-big-size-item [book] = "book"></app-big-size-item>
+        </li>
+
+
+      </ul>
+      <div class="shelf">
+        <div class="reflection"></div>
+        <div class="bookend_left"></div>
+        <div class="bookend_right"></div>
+      </div>
+      <!--(click)="this.expandSelf()"-->
+      <div class="expendSelf" ></div>
+    </div>
+
+  </div>
+
+  <div id="selfContainer2">
+    <div class="categorySelf list" *ngFor="let cate of listsSer.categories">
+      <h4 align="right">{{cate | translate}}
+        <hr width="70%" style="margin: 10px auto 0 auto">
+
+      </h4>
+      <ul>
+        <li class="bigSize" *ngFor="let book of listsSer.books | BooksByCategoryPipe: [cate]
+        |limitTo: [0,6] | bySearch: sort.search.name |orderBy: sort.orderItems | byYear: sort.yearIs | stockOnly:sort.InStockOnly" >
+            <app-big-size-item [book] = "book"></app-big-size-item>
+            <div class="shelf">
+              <div class="reflection"></div>
+<!--              <div class="bookend_left"></div>
+              <div class="bookend_right"></div>-->
+            </div>
+        </li>
+
+      </ul>
+
+
+
+
+    </div>
+
+  </div>
+
+</div>

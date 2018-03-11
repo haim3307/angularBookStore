@@ -1,0 +1,40 @@
+<div class="bookProduct">
+  <div class = "sliderNav"><button (click)="navBooks(0)" class="sliderNavB" id="listB1" >לספר קודם</button></div>
+  <a class="returnFromPage" (click)="goBack()">חזרה:</a>
+  <img class="productCover" src="assets/_img/books/{{book.bookImage}}" alt="">
+  <div class="proInfo">
+    <h2> {{book.name}} </h2>
+    <p class="bookDesc"> {{book.desc}} </p>
+    <div class="infoWrap">
+      <p>שם הסופר: {{book.author}} </p>
+      <p>קטגוריה: {{book.category | translate}} </p>
+      <p>דירוג: {{book.rating}} </p>
+      <p>שנת הוצאה: {{book.yearOfPublish}} </p>
+<!--
+      <p>במלאי: {{book.inStock | checkStock}} </p>
+-->
+      <p>מחיר: {{book.bookPrice}}₪ </p>
+    </div>
+    <div class="actions">
+      <button class="" (click)="shopC.addToCart(book)">הוסף לסל</button>
+      <button class="addToBag" (click)="shopC.payNow(book)">שלם עכשיו</button>
+    </div>
+
+  </div>
+  <div class ="sliderNav"><button class="sliderNavB" id="listB2" (click)="navBooks(1)">לספר הבא</button></div>
+</div>
+
+<div class="feedBacks" style="margin: 0 auto; width: 70%; display: flex; flex-direction: column;">
+  <h2 align="center">ביקורות</h2>
+
+  <div class="feedback" style="width: 50%; margin: 20px auto">
+    <h4> שם לקוח: קובי ישראל </h4>
+    <p> תגובה: אחלה ספר ממליץ לכולם </p>
+    <p>דירוג אישי : 5</p>
+  </div>
+
+  <a class="moreComments" style="text-decoration: underline; color: blue; cursor: pointer; margin: 0 auto">לתגובות נוספות</a>
+<!--
+  <feed-back-sys style="flex: 1; display: flex; justify-content: center"></feed-back-sys>
+-->
+</div>

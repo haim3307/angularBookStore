@@ -1,0 +1,212 @@
+
+#MainNav {
+    height: 100%;
+    display: grid;
+    /*'. ul .'*/
+    /*0.2fr 1fr 0.2fr*/
+    grid-template-areas: 'ul';
+    direction: rtl; }
+
+#MainNav ul {
+    direction: ltr;
+    display: grid;
+    height: 100%;
+    grid-area: ul;
+    grid-template-areas: ". aboutli contactli logoli storeli homeli ." "sorting sorting sorting logoli searchZone searchZone searchZone";
+    grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr; }
+
+#MainNav ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em; }
+#MainNav li a {
+    padding: 50px;
+}
+li#logo {
+    grid-area: logoli;
+    position: relative; }
+li#logo img {
+    z-index: 999;
+    width: 65%;
+    position: absolute;
+    top: 0;
+    margin-top: 10px;
+    max-width: 200px; }
+@media (max-width: 810px) {
+    #logo img {
+        position: static;
+        top: 0;
+        max-width: 200px; } }
+
+#homeli {
+    grid-area: homeli; }
+
+#storeli {
+    grid-area: storeli; }
+
+#contactli {
+    grid-area: contactli; }
+
+#aboutli {
+    grid-area: aboutli; }
+
+#sortingMenuLi {
+    grid-area: sortingMenuLi; }
+
+#searchZone {
+    grid-area: searchZone; }
+
+#toggleSort {
+    grid-area: sorting;
+    color: white; }
+.activeM{
+    background-color: rgba(230,230,230,0.7);
+}
+.mobOpened{
+    right: 0;
+}
+.mobClosed{
+    right: -100%;
+}
+
+a.active-link {
+    text-shadow: 1px 2px 3px black;
+    font-weight: bold; }
+
+#searchZone input {
+    border-radius: 40px;
+    width: 78%;
+    display: block;
+    text-align: center;
+    direction: rtl;
+    margin: 10px 0;
+    padding: 5px;
+}
+@media (min-width: 810px) and (max-width: 1600px) {
+    li#logo img {
+        z-index: 999;
+        width: 30%;
+        transform: scale(1.2) translateY(0);
+        position: relative;
+        top: 0;
+        max-width: 200px;
+    }
+    #MainNav li a {
+        padding: 0;
+    }
+    #searchZone input {
+        padding: 3px;
+
+    }
+}
+/*mobile-menu*/
+#mobileNav {
+    display: none;
+    height: 100%; }
+
+#mobileNav #mobileScreen {
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+    background-color: rgba(50, 68, 200, 0.7);
+    z-index: 999999;
+    top: 0;
+    transition: 0.7s right;
+}
+#mobileNav #mobileScreen input {
+    font-size: 2.5vw;
+    width: 90%;
+    min-height: 30px; }
+
+#mobileNav #mobileScreen li {
+    width: 100%;
+    padding: 10% 5%;
+    transition: 0.5s all;
+    box-sizing: border-box; }
+#mobileNav #mobileScreen li a {
+    width: 100%;
+    display: block; }
+#mobileNav #mobileScreen li:hover {
+    background-color: rgba(200, 200, 200, 0.7); }
+#mobileNav #mobileScreen li:active {
+    background-color: rgba(50, 68, 200, 0.7); }
+
+#hideMScreen {
+    color: white;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 10%; }
+
+#mobileNav #search2 {
+    width: 80%;
+    padding: 2% 3%;
+    border-radius: 20px; }
+
+#mobileNav .mobLogo {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: '. mobImg showMScreen';
+    grid-template-columns: 1fr 1fr 1fr; }
+
+.mobLogo #mobImg {
+    grid-area: mobImg; }
+.mobLogo #mobImg img {
+    max-width: 100px;
+    margin: 0 auto 0 auto; }
+
+.mobLogo #showMScreen {
+    grid-area: showMScreen;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+.mobLogo #showMScreen img {
+    max-height: 50px;
+    width: 10vw;
+    max-width: 50px;
+    cursor: pointer; }
+
+@media (min-width: 450px) {
+    .mobLogo #mobImg img {
+        position: absolute;
+        width: 120vw;
+        max-width: 100px;
+        right: 0;
+        left: 0;
+        top: 2vw;
+        margin: auto;
+        z-index: 99999; }
+
+    .mobLogo #showMScreen > img {
+        margin-top: 4vw; } }
+@media (max-width: 810px) {
+    #mobileNav {
+        display: block; }
+
+    #CartLi {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+
+    #icon {
+        position: static; }
+
+    .mobLogo #showMScreen > img {
+        width: 7vw;
+        height: 7vw; }
+
+    .mobLogo #mobImg {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+    .mobLogo #mobImg > img {
+        width: 15vw;
+        transform: translateY(2vw) scale(1.2); }
+
+    .mobLogo .cartImg {
+        width: 100%; } }
+/*end-of-mobile-menu*/

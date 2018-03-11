@@ -1,0 +1,32 @@
+<style>
+  .container{
+    margin: 0 auto;
+    width:  50%;
+  }
+  .pagesList{
+    direction: ltr;
+  }
+  .pagesList li{
+    display: inline-block;
+    margin:  5px;
+    padding: 5px;
+  }
+  .pagesList li a{color: blue;text-decoration: underline;cursor: pointer}
+  .pagesList li a.selectedLetter{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: skyblue;
+    min-width: 4vw;
+    min-height: 4vw;
+    font-weight: bold;
+    border-radius: 100%;
+    color: white;
+    text-decoration: none;
+  }
+</style>
+<div class="container">
+    <ul class="pagesList">
+        <li *ngFor="let page of rangeArr"><a routerLinkActive="selectedLetter" [routerLink]="['/store',{page:page+1}]" (click)="emitPageSelect(page+1)" queryParamsHandling ="merge">{{page+1}}</a></li>
+    </ul>
+</div>

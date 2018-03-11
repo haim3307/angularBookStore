@@ -1,0 +1,144 @@
+
+.colList {
+    margin-top: 10px;
+    width: 100%; }
+:host-context(.cartColItem) {
+    width: 100%;
+    background: 0;
+    margin: 0 0 10px 0;
+    display: grid;
+    grid-template-areas: "bookImg info info" "bookImg info info" "removeFromCart addToCart .";
+    grid-template-columns: 1fr 3fr 1fr;
+}
+:host-context(.cartColItem) .colCover{
+    max-width: 70%;
+}
+:host-context(.storeColItem){
+    display: grid;
+    grid-template-areas: "bookImg info info" "bookImg info info" "bookImg addToCart addToCart";
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-column-gap: 10px;
+
+}
+:host-context(.storeColItem) .bookTitle{
+    font-size: calc(20% + 10px);
+
+}
+:host-context(.storeColItem) .colCover{
+    max-width: 100%;
+}
+.colsize:nth-child(even) {
+    background-color: lightcyan; }
+
+.colCover {
+    grid-area: bookImg;
+    height: 100%;
+
+}
+
+.info {
+    grid-area: info;
+}
+.info p {
+    margin-bottom: 3px;
+}
+.bookTitle{
+    grid-area: bookTitle;
+    grid-row: 1;
+    grid-column: 1/3;
+    font-size: 1.2em;
+    font-weight: bold;
+
+}
+.addToCart{
+    transition: 0.4s opacity;
+    opacity: 1;
+    grid-area: addToCart;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.colsize:hover .addToCart {
+    opacity: 1; }
+
+.addToCart .addToCartB {
+    display: inline-block;
+    margin: 10px 0;
+    width: 70px;
+}
+.quanWrapper{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.qControl{
+    display: inline-flex;
+    justify-content: center;
+    align-items:center;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+
+}
+.qDisplay{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+
+}
+.removeFromCart {
+    grid-area: removeFromCart;
+    direction: ltr;
+    padding: 0 50px;}
+
+.removeFromCart button {
+    width: 60px;
+    height: 35px;
+    background-color: red;
+    color: white;
+    border-radius: 10%;
+    opacity: 1;
+    transition: 0.4s opacity;
+    margin-top: 4px;
+
+}
+
+.colsize:hover button {
+    display: block;
+    opacity: 1; }
+@media (max-width: 810px) {
+    .colsize {
+        width: 100%;
+        grid-template-areas: "bookImg info info" "bookImg info info" "bookImg addToCart addToCart";
+        grid-template-columns: 1fr 1fr 50px; }
+
+    .colsize > img {
+        width: 173px; } }
+/*end-of-col*/
+.addToCartB {
+    display: inline-block;
+    cursor: pointer;
+    top: 0;
+    height: 40px;
+    width: 100%;
+    text-shadow: 1px 3px 5px black;
+    -webkit-border-radius: 20%;
+    border-radius: 20%;
+    color: white;
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: -webkit-linear-gradient(0deg, rgba(0, 255, 0, 0.8) 0, rgba(0, 255, 76, 0.8) 100%);
+    background: -moz-linear-gradient(90deg, rgba(0, 255, 0, 0.8) 0, rgba(0, 255, 76, 0.8) 100%);
+    background: linear-gradient(90deg, rgba(0, 255, 0, 0.8) 0, rgba(0, 255, 76, 0.8) 100%); }
+.addToCartB:hover {
+    background: -webkit-linear-gradient(0deg, #499300 0, #499300 28%, #009669 99%, #009669 100%), black;
+    background: -moz-linear-gradient(90deg, #499300 0, #499300 28%, #009669 99%, #009669 100%), black;
+    background: linear-gradient(90deg, #499300 0, #499300 28%, #009669 99%, #009669 100%), black; }
+.addToCartB:active {
+    top: 6px;
+    background: -webkit-linear-gradient(-90deg, rgba(35, 150, 0, 0.8) 0, rgba(64, 193, 0, 0.8) 100%), white;
+    background: -moz-linear-gradient(180deg, rgba(35, 150, 0, 0.8) 0, rgba(64, 193, 0, 0.8) 100%), white;
+    background: linear-gradient(180deg, rgba(35, 150, 0, 0.8) 0, rgba(64, 193, 0, 0.8) 100%), white; }

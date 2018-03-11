@@ -1,0 +1,114 @@
+
+.sliderNav {
+    display: flex;
+    align-items: center;
+}
+
+.sliderNavB {
+    height: 10vw;
+    width: 10vw;
+    margin: 10px;
+}
+#listB1{
+}
+#listB2{
+
+}
+.bookProduct {
+    display: flex;
+    /*
+  grid-template-areas: '';
+  */
+    width: 70%;
+    margin: 70px auto;
+    height: 46vw;
+    max-height: 500px;
+}
+
+.bookProduct .returnFromPage {
+    background-color: red;
+}
+
+.bookProduct .proInfo {
+    margin-right: 10px;
+    display: grid;
+}
+
+.bookProduct .infoWrap {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 10px;
+}
+
+.bookProduct .infoWrap p {
+    text-align: center;
+}
+
+.bookProduct .bookDesc {
+    font-size: calc(0.45vw + 1em);
+}
+
+.bookProduct .productCover {
+    width: 30%;
+    max-width: 300px;
+}
+
+.bookProduct .actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.bookProduct .actions button {
+    padding: 0 10%;
+    height: 6vw;
+    max-height: 70px;
+}
+
+.bookProduct .addToBag {
+    background: #ff9c33;
+}
+
+.bookProduct .addToBag:hover {
+    background: #ffc180;
+}
+
+.bookProduct .addToBag:focus,
+.bookProduct .addToBag:focus:hover {
+    border-color: #ffc180;
+}
+
+.bookProduct .addToBag:active,
+.bookProduct .addToBag:focus:active {
+    background: #ff9c33;
+}
+
+@media (max-width: 1410px) {
+    .bookProduct {
+        width: 100%;
+    }
+}
+
+@media (max-width: 810px) {
+    .bookProduct {
+        flex-direction: column;
+        height: auto;
+        margin: 5vw auto;
+        max-height: none;
+
+    }
+    .sliderNav{
+        display: block;
+    }
+    .sliderNavB {
+        height: 10vw;
+        border-radius: 0;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+/*# sourceMappingURL=book.stylesheet.css.maps.map*/
+

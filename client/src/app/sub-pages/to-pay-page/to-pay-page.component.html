@@ -1,0 +1,39 @@
+<div id="buyPage" *ngIf="shopC.MapToArr.length">
+
+  <div id="buyList">
+    <ul class="colList" id="bag">
+      <li *ngFor="let book of shopC.MapToArr">
+        <app-col-size-item  class="cartColItem" [book] = "book[1]" [buyMode]="1"></app-col-size-item>
+      </li>
+    </ul>
+  </div>
+  <style>
+    .lowFixed{
+      margin-top: 180px;
+    }
+    /*col style*/
+
+    /*end of col-style*/
+  </style>
+  <div id="info">
+    <div id="toFixAbsolute">
+      <div id="fixedInfo" [ngClass]="{lowFixed:fixedHeader}">
+        <div class="totalCost">
+          <p>מספר הספרים שנבחרו: {{shopC.MapToArr.length}} </p>
+          <hr>
+          <p>סה"כ יחידות : {{shopC.totalUnits}}</p>
+          <hr>
+          <p>סה"כ לתשלום:{{shopC.bagTotalCost}} ש"ח</p>
+          <p>סה"כ לתשלום כולל מע"מ :{{ shopC.bagTotalCostWithTax  }} ש"ח</p>
+
+        </div>
+        <div id="action"><button>שלם עכשיו</button><button>בטל הזמנה</button> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!shopC.MapToArr.length" style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+
+  <h2 style="color: darkgrey">העגלה שלך ריקה</h2>
+
+</div>

@@ -1,0 +1,14 @@
+.mobileAppNav{
+     height: 10vw; min-height: 50px; width: 100%; background-color: lightslategray; display: none;
+    justify-content: center; align-items: center;        bottom: 0;
+    position: fixed; z-index: 8999999;
+
+}
+
+@media (max-width: 810px) {
+    .mobileAppNav{
+        display: flex;
+
+    }
+
+}

@@ -1,0 +1,61 @@
+#contactPage{
+    width: 70%;
+    margin: 0 auto;
+
+}
+.background{
+    background-color: #6BBEEA;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 0px 60px 60px ;
+    color:white;
+}
+.background h1{
+    color: white;
+}
+.footerB{
+    height: 30vh;
+    margin-bottom: 70px;
+}
+form{
+    width: 50%;
+    margin: 70px auto;
+    height: 700px;
+}
+.contactUnit{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.messageCon{
+    flex-direction: column;
+}
+.messageCon label{
+    text-align: center;
+    padding: 20px;
+}
+#message{
+    width: 100%;
+}
+.contactUnit label{
+    min-width: 100px;
+    display: inline-block;
+}
+.contactUnit input{
+    padding: 10px 40px;
+}
+
+@media (max-width: 810px) {
+    form{
+        width: 100%;
+        margin: 70px auto;
+        height: 700px;
+    }
+    #contactPage{
+        width: 100%;
+        margin: 0 auto;
+
+    }
+}

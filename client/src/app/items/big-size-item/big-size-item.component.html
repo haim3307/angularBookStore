@@ -1,0 +1,18 @@
+<div style="height: 100%"  (click)="listsSer.toBookPage(book)"  (mouseenter)="toggleInfo('enter')" (mouseleave)="toggleInfo('leave')">
+  <button class="toggleInfo" (click)="toggleInfo('click',$event)"> I </button>
+  <img src="assets/_img/books/{{book.bookImage}}">
+  <div class="info" *ngIf="info">
+    <p>שם הספר: {{book.name}}</p>
+    <p>סופר: {{book.author}}</p>
+    <p>במלאי: {{ book.inStock | inStock}}</p>
+    <p >מחיר: {{book.bookPrice}}₪</p>
+    <p>קטגוריה: {{book.category | translate}}</p>
+    <p>דירוג: {{book.rating}}</p>
+<!--
+    <p ng-hide="showIsbn"> {{book.bookIsbn}} : מק"ט</p>
+-->
+  </div>
+  <div class="addToCart">
+        <button class="addToCartB" title="הוסף לעגלה" (click)="shopC.addToCart(book,$event)">הוסף לסל</button>
+  </div>
+</div>

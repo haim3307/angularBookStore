@@ -1,0 +1,105 @@
+
+/*#storePage .colsize {
+    display: grid;
+    width: 100%;
+    grid-template-areas: "bookImg info info" "bookImg info info" "bookImg addToCart addToCart";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+}*/
+
+#storePage .colList :nth-child(even) {
+    background-color: azure;
+color: black;}
+#storePage .colList{
+    padding: 40px 0 0 50px;
+}
+#storePage .colCover{
+    width: 100%;
+
+}
+#storePage{
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    height: 100%;
+
+}
+
+#storePage .colList{
+    margin: 20px 0 40px 0;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+
+
+}
+.colList4{grid-template-columns: 1fr 1fr 1fr 1fr;}
+.colList3{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: calc(10vw + 50px);
+}
+.colList2{grid-template-columns: 1fr 1fr;}
+.colList1{grid-template-columns: 1fr;}
+#storePage .colList .colsize{
+    font-size: 10pt;
+    position: relative;
+
+}
+#storePage .colList .colsize .info p {
+    margin-bottom: 3px;
+}
+#storePage .checkLabelC{
+    height: 9vw;
+
+}
+.byLetter{
+    display: flex;
+    margin-top: 40px;
+    height: 4vw;
+    max-height: 70px;
+
+}
+.byLetter a{
+    color: blue;
+    text-decoration: underline;
+    flex: 1;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.selectedLetter{
+    background-color: skyblue;
+    min-width: 4vw;
+    min-height: 4vw;
+    font-weight: bold;
+    border-radius: 100%;
+    color: white;
+    text-decoration: none;
+}
+@media (max-width: 1200px) and (min-width: 810px){
+          .yearsList {
+              grid-auto-rows: auto;
+          }
+}
+@media (max-width: 810px) {
+    #storePage{
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
+    #storePage .colList{
+        padding: 0;
+        grid-row-gap: 40px;
+    }
+}
+.Lnav{
+    background-color: skyblue;
+    margin-left: 18px;
+    color: white;
+}
+
+.Lnav #sorting{
+    display: grid;
+    grid-template-columns: 1fr;
+
+}

@@ -1,0 +1,26 @@
+<div id="mainContainer">
+    <app-cart-pop-up class="deskCart"></app-cart-pop-up>
+    <style>
+        .fixedHeader{
+            position: fixed;
+        }
+
+    </style>
+    <header id="mainHeader" [ngClass] = "fixed?'fixedHeader':'nonFixed'">
+        <app-main-nav></app-main-nav>
+    </header>
+
+    <main (scroll)= "updateFixed()">
+
+        <router-outlet>
+
+
+        </router-outlet>
+
+    </main>
+    <div class="mobileAppNav">
+        <span style="cursor: pointer; color: white;" *ngIf="!sort.allInputs" (click)="sort.allInputs = true">הצג מיון</span>
+        <span style="cursor: pointer; color: white;" *ngIf="sort.allInputs" (click)="sort.allInputs = false">הסתר מיון</span>
+    </div>
+    <footer>&copy; כל הזכויות שמורות להוצאת הספרים "על המדף"</footer>
+</div>

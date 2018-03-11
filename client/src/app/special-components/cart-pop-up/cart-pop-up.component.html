@@ -1,0 +1,21 @@
+<div id="shoppingBag">
+  <div id="icon" (click) ="toggleBag()">
+    <div id="cartCounter">{{shopC.MapToArr.length || 0}}</div>
+    <img class="cartImg" src="assets/_img/layout/cartLogo1.png"/>
+
+  </div>
+  <div class="bagContent" *ngIf="!bagHide">
+    <div id="bag" *ngIf="shopC.MapToArr.length">
+      <ul class="colList">
+        <li *ngFor="let book of shopC.MapToArr">
+            <app-col-size-item  class="cartColItem" [book] = "book[1]" [buyMode]="1"></app-col-size-item>
+        </li>
+      </ul>
+    </div>
+    <div class="totalCost" *ngIf="shopC.MapToArr.length">
+      <a routerLink="bag" id="goToBuyButton" (click)="toBuy()"><input type="button" value="המשך לרכישה"></a>
+      <span>סה"כ :{{shopC.bagTotalCost}} ש"ח</span>
+    </div>
+    <h4 id="emptyCart" *ngIf = "!shopC.MapToArr.length">העגלה שלך ריקה</h4>
+  </div>
+</div>

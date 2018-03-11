@@ -1,0 +1,120 @@
+<div *ngIf="mode;then horizontal else vertical">
+
+
+</div>
+<ng-template #horizontal>
+  <div class="sorting-horizontal">
+    <div id="sortPartA" class="sorting">
+      <div class="sortUnit">
+        <span>מחיר</span>
+        <label for="sortPrice" class="select-style">
+          <select id="sortPrice" [(ngModel)]="sort.orderItems">
+            <option value="+bookPrice">נמוך לגבוהה</option>
+            <option value="-bookPrice">גבוהה לנמוך</option>
+          </select>
+        </label>
+      </div>
+      <div class="sortUnit">
+        <span style="width: 63px">מיין לפי</span>
+        <label>
+          <select [(ngModel)]="sort.orderItems">
+            <option value="+name">שם הספר</option>
+            <option value="+author">שם הסופר</option>
+          </select>
+        </label>
+      </div>
+      <div class="sortUnit">
+        <label style="display: flex; align-items: center;">
+          <input type="checkbox" [(ngModel)]="sort.InStockOnly">
+          <span style="width: 115px;">במלאי בלבד</span>
+        </label>
+      </div>
+    </div>
+    <div id="sortPartB" class="sorting">
+      <div class="checkBoxes">
+        <div class="categories">
+          <label *ngFor="let cateCheck of listsSer.categories" class="checkLabel" for="{{cateCheck}}1Id">
+            <input [(ngModel)]="listsSer.cate[cateCheck]" (change)="sort.filterCategories()" id="{{cateCheck}}1Id" value="{{cateCheck}}" type="checkbox">
+            <span>{{cateCheck | translate}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+
+<ng-template #vertical>
+  <style>
+
+    @media (min-width: 810px) and (max-width: 1200px){
+
+    }
+
+  </style>
+  <div class="sorting-vertical">
+      <div class="yearWrapper" [ngClass]="{order2: storeMode}">
+        <h2> מיין לפי שנה</h2>
+        <ul class="yearsList">
+          <li *ngFor="let year of yearsList" (click)="!storeMode?sort.sortYear(year):inputChange('year',year)">
+            <h3 style="position: absolute; z-index: 5">{{year}}</h3>
+            <img src="assets/_img/layout/{{year}}.png" width="100%" height="100%">
+            <div class="shadowYear" [ngClass]="{selectedY : this.sort.yearIs === year}" style="position: absolute; z-index: 4"></div>
+          </li>
+
+        </ul>
+      </div>
+    <div class="detSorts">
+      <h3 class="sortHeadline">סדר לפי</h3>
+      <div class="orderBy">
+        <div class="sortUnit">
+          <span>מחיר</span>
+          <label for="sortPrice1" class="select-style">
+            <select id="sortPrice1" [(ngModel)]="sort.orderItems" (ngModelChange)="inputChange('orderItems',$event)">
+              <option value="+bookPrice">נמוך לגבוהה</option>
+              <option value="-bookPrice">גבוהה לנמוך</option>
+            </select>
+          </label>
+        </div>
+        <div class="sortUnit">
+          <span style="width: 63px">מיין לפי</span>
+          <label>
+            <select [(ngModel)]="sort.orderItems" (ngModelChange)="inputChange('orderItems',$event)">
+              <option value="+name">שם הספר</option>
+              <option value="+author">שם הסופר</option>
+            </select>
+          </label>
+        </div>
+        <div class="sortUnit">
+          <label style="display: flex; align-items: center; margin-top: 17px; cursor: pointer">
+            <input type="checkbox" [(ngModel)]="sort.InStockOnly" (ngModelChange)="inputChange('stockOnly',$event)">
+            <span>במלאי בלבד</span>
+          </label>
+        </div>
+        <div class="sortUnit" *ngIf="storeMode">
+          <h3>מספר טורים</h3>
+          <select [(ngModel)] = "sort.gridWeb"  id="">
+            <option *ngIf="window.innerWidth > 1500" value="4">4</option>
+            <option *ngIf="window.innerWidth > 1250" value="3">3</option>
+            <option *ngIf="window.innerWidth > 900" value="2">2</option>
+            <option value="1">1</option>
+          </select>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <h3 class="sortHeadline">בחר קטגוריה</h3>
+      <div class="categoriesC">
+        <label *ngFor="let cateCheck of categories" class="checkLabelC {{cateCheck}}Style"
+               [ngClass]="{selectedCat: listsSer.cate[cateCheck] === true}" for="{{cateCheck}}Id">
+          <input [(ngModel)]="listsSer.cate[cateCheck]" (change)="sort.filterCategories()" (ngModelChange)="inputChange('cate',$event)" id="{{cateCheck}}Id" value="{{cateCheck}}" type="checkbox">
+          <span>{{cateCheck | translate}}</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+</ng-template>

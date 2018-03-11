@@ -1,0 +1,260 @@
+.sorting-horizontal {
+    display: grid;
+    background-color: lightslategray;
+    grid-template-areas: 'sortPartA . sortPartB';
+    grid-template-columns: 1.2fr 1fr 1fr;
+    position: absolute;
+    width: 100%;
+    padding-top: 30px;
+}
+.sorting-horizontal > * {
+    margin-left: 20px; }
+.sorting-horizontal span {
+    margin: 5px; }
+
+.sorting-horizontal .sorting {
+    display: flex;
+    align-items: center;
+    color: white;
+    direction: rtl;
+    padding: 1%; }
+
+.sorting-horizontal #sortPartA.sorting {
+    grid-area: sortPartA; }
+
+.sorting-horizontal #sortPartB.sorting {
+    grid-area: sortPartB;
+    justify-content: flex-end; }
+.sorting-horizontal #sortPartB.sorting > * {
+    margin-left: 10px; }
+.sorting-horizontal #sortPartA > * , .sorting-horizontal #sortPartB > *{
+    padding: 15px;
+}
+.sorting-horizontal #sortPartA > label,#sortPartB > label{
+    padding: 0;
+}
+.sorting-horizontal .line {
+    height: 30px;
+    background-color: lightslategray; }
+
+.sorting-horizontal #sortBar {
+    background-color: lightslategray;
+    color: white;
+    position: relative;
+    height: auto;
+ }
+#sortBar p {
+    display: block; }
+
+#showIsbnLab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin-top: 4px; }
+
+#showIsbnLab input {
+    width: 23px;
+    height: 23px;
+    margin-top: 1px; }
+
+@media (max-width: 810px) {
+    .sorting-horizontal {
+        grid-template-areas: "sortPartA" "sortPartB";
+        grid-template-columns: 1fr;
+        background-color: rgba(50, 68, 200, 0.7);
+    }
+
+    .sorting-horizontal .sorting {
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+    .sorting-horizontal .sorting .sortUnit {
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+
+    .sorting-horizontal .sorting select {
+        width: 100%; }
+
+    #sorting > * {
+        margin: 0; }
+    .sorting-horizontal{
+        bottom: 10vw;
+        position: fixed;
+    }
+
+}
+
+.sorting-horizontal .categories{
+    display: flex;
+
+}
+@media (max-width: 410px) {
+    .sorting-horizontal .categories{
+        flex-direction: column;
+    }
+}
+.sorting-horizontal .sortUnit{
+    display: flex; align-items: center;
+}
+.checkLabel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.checkLabel{
+
+}
+/*vertical*/
+.sorting-vertical{
+    display: flex;
+    flex-flow: column;
+}
+.sorting-vertical .sorting{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+.order2{
+    order: 2;
+}
+.sorting-vertical .categories{
+    display: flex;
+    flex-flow: column;
+}
+.sorting-vertical .sortUnit{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 30px 0;
+}
+.sorting-vertical .checkBoxes{
+    padding: 30px;
+
+}
+.categoriesC{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    direction: rtl;
+
+
+}
+.checkLabelC{
+    background-color: yellowgreen;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+    font-size: 24px;
+    font-weight: bold;
+}
+.checkLabelC input{
+    display: none;
+}
+/*categories*/
+.warStyle{
+    background-color: brown;
+    color: white;
+}
+.romanceStyle{
+    background-color: hotpink;
+    color: blue;
+}
+.adventureStyle{
+    background-color: #708698;
+    color: yellow;
+}
+.selectedCat{
+    background-color: lightgreen;
+    border: 2px double white;
+    color: black;
+}
+
+.sortHeadline{
+    font-size: 1.6em;
+    direction: rtl; color: white; padding: 20px 15px;
+}
+.orderBy{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgba(188,188,188,0.7);
+    direction: rtl;
+}
+.yearWrapper h2{
+    direction: rtl; color: white; padding: 10px 15px;
+}
+.yearsList {
+    display: grid;
+    grid-auto-rows: 10vw;
+    grid-template-columns: 1fr 1fr;
+    direction: rtl; }
+.yearsList li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: 0.7s all;
+    text-shadow: -3px 2px 1px black;
+    position: relative;
+    overflow: hidden; }
+.yearsList li img {
+    transition: 0.9s transform; }
+.yearsList li:hover .shadowYear {
+    box-shadow: inset 4px 2px 46px 6px whitesmoke; }
+
+
+.yearsList li:hover img {
+    transform: scale(1.2); }
+.yearsList li:hover {
+    font-weight: bold; }
+.shadowYear {
+    box-shadow: inset 4px 2px 46px 6px black;
+    transition: 0.7s all;
+    width: 100%;
+    height: 100%; }
+.selectedY{
+    box-shadow: inset 4px 2px 46px 6px #009669;
+}
+@media (min-width: 1200px){
+/*    :host-context(.store) .yearsList{
+        grid-auto-rows: 15vw;
+
+    }*/
+}
+:host-context(.store) .yearsList{
+    /*
+    grid-auto-rows: 11vw;
+    */
+
+}
+@media (min-width: 810px) and (max-width: 1200px){
+
+    .checkLabelC{
+        height: 22vw;
+    }
+    .yearsList {
+        grid-auto-rows: 25vw;
+
+    }
+    :host-context(.store) .checkLabelC{
+        height: 15vw;
+    }
+    :host-context(.store) .yearsList{
+        grid-auto-rows: 15vw;
+
+    }
+}
+@media (max-width: 810px) {
+    .checkLabelC{
+        height: 45vw;
+        color: blue;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .yearsList {
+        grid-auto-rows: 50vw;
+    }
+}

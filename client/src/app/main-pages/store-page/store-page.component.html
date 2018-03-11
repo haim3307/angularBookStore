@@ -1,0 +1,19 @@
+<div id="storePage">
+  <nav class="Lnav" *ngIf="window.innerWidth > 810">
+      <div style="margin-top: 50px"></div>
+      <app-sort-nav class="store" [mode]="0" [storeMode]="1" [yearsList]="initials.store.yearsOfPublish" [categories]="initials.store.categories" (onFilter)="getFiltered($event)"></app-sort-nav>
+  </nav>
+  <div>
+      <div class="byLetter"><a *ngFor="let letter of heLetters" (click)="searchByLetter(letter)"
+                               [ngClass]="{selectedLetter : this.sort.letterSearch === letter}">{{letter}}</a>
+      </div>
+      <ul class="colList colList{{sort.gridWeb}}">
+        <li *ngFor="let book of books | bySearch: sort.search.name | byYear: sort.yearIs
+        | orderBy: sort.orderItems | byLetter : sort.letterSearch | stockOnly:sort.InStockOnly"><app-col-size-item class="storeColItem" [book]="book" [buyMode]="2"></app-col-size-item></li>
+      </ul>
+    <app-pager [pages]="pages" (onPageSelect)="changePage($event)"></app-pager>
+
+  </div>
+
+
+</div>

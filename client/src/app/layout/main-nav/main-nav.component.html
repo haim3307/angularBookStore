@@ -1,0 +1,47 @@
+<nav id="MainNav">
+
+
+  <ul>
+    <li id="logo">
+      <img src="assets/_img/layout/logo.png">
+
+    </li>
+    <!--[ngClass]="{'activeL' : '' == 'home'}"-->
+    <li id="homeli"><a routerLink="home" routerLinkActive="active-link"
+                       >דף הבית</a></li>
+    <li id="storeli"><a routerLink="store" routerLinkActive="active-link">החנות</a></li>
+    <li id="contactli"><a routerLink="contact" routerLinkActive="active-link">צור קשר</a></li>
+    <li id="aboutli"><a routerLink="about" routerLinkActive="active-link">אודות</a></li>
+    <li id="searchZone">
+      <input id="search" [(ngModel)]="sort.search.name" placeholder="הקלד את שם הספר..">
+    </li>
+    <li id="toggleSort">
+      <p id="showSort" (click)="toggle()" *ngIf="!sort.allInputs">הצג מיון</p>
+      <p id="hideSort" (click)="toggle()" *ngIf="sort.allInputs">הסתר מיון</p>
+    </li>
+  </ul>
+
+</nav>
+
+<nav id="mobileNav">
+  <div class="mobLogo">
+    <div id="showMScreen">
+
+      <img src="assets/_img/layout/mobileIcon.png" (click)="mobileWindow()" alt="">
+    </div>
+
+    <div id="mobImg"><img src="assets/_img/layout/logo.png" alt=""></div>
+    <app-cart-pop-up id="CartLi"></app-cart-pop-up>
+  </div>
+  <ul id="mobileScreen" [ngClass]="halfO?'mobOpened':'mobClosed'">
+    <div id="hideMScreen" (click)= "mobileWindow()"></div>
+    <li id="searchZone2">
+      <input id="search2" [(ngModel)]="sort.search.name" placeholder="הקלד את שם הספר..">
+    </li>
+    <li routerLinkActive="activeM"><a routerLink="home">דף הבית</a></li>
+    <li routerLinkActive="activeM"><a routerLink="store">החנות</a></li>
+    <li routerLinkActive="activeM"><a routerLink="contact">צור קשר</a></li>
+    <li routerLinkActive="activeM"><a routerLink="about">אודות</a></li>
+  </ul>
+</nav>
+<app-sort-nav [mode]="1" *ngIf="sort.allInputs"></app-sort-nav>

@@ -1,0 +1,78 @@
+#buyPage {
+    display: grid;
+    grid-template-areas: "info toBuy" ". toBuy";
+    grid-template-columns: 0.6fr 1fr;
+    margin: 0;
+    direction: rtl; }
+
+#buyPage #buyList {
+    grid-area: toBuy; }
+
+@media (min-width: 810px) {
+    #buyPage #info {
+        margin-top: 34px;
+        grid-area: info;
+        position: relative;
+        color: white; }
+
+    #buyPage #info #toFixAbsolute {
+        position: absolute;
+        width: 100%;
+        height: 100%; }
+
+    #buyPage #info #fixedInfo {
+        position: fixed;
+        height: 30vw;
+        background-color: rgba(50, 68, 200, 0.7);
+        width: 35vw;
+        min-height: 320px;
+        right: 1%; } }
+#buyPage #info p {
+    margin: 10px 0;
+    text-align: center; }
+
+#buyPage #info .totalCost {
+    background: 0;
+    height: 80%; }
+
+#buyPage #info #action {
+    height: 20%;
+    display: flex;
+    justify-content: space-around; }
+
+#buyPage #info #action button {
+    max-height: 50px;
+    padding: 0 2%; }
+#buyPage .colList li{
+    margin-bottom: 50px;
+}
+#buyPage .colList .colsize {
+    display: grid;
+    width: 100%;
+    grid-template-areas: "bookImg info info" "bookImg info info" "bookImg addToCart removeFromCart";
+    grid-template-columns: 1fr 2fr auto;
+}
+#buyPage .colList li p{
+    padding: 10px;
+}
+#buyPage .colList li .removeFromCart {
+    grid-area: removeFromCart;
+}
+#buyPage #emptyCart {
+    color: white; }
+.colList {
+    margin-top: 40px;
+    width: 100%; }
+
+
+.colsize:nth-child(even) {
+    background-color: lightcyan; }
+@media (max-width: 810px) {
+    #buyPage {
+        display: block;
+        grid-template-areas: "toBuy" "info";
+        grid-template-columns: auto auto;
+        margin: 0;
+        direction: rtl; } }
+
+/*# sourceMappingURL=toBuyPage.css.map */

@@ -1,0 +1,24 @@
+<img (click)="listsSer.toBookPage(book)" class="colCover" src="assets/_img/books/{{book.bookImage}}">
+<div (click)="listsSer.toBookPage(book)" class="info" style="grid-area: info;">
+  <p class="bookTitle">{{book.name}}</p>
+  <p>תאריך: {{book.yearOfPublish}}</p>
+  <p>סופר: {{book.author}}</p>
+  <p>מחיר: {{book.bookPrice}}₪</p>
+  <p *ngIf="book.quantity > 1"> מחיר בכמות:{{book.pTotalPrice}}₪</p>
+  <p>במלאי: {{ book.inStock | inStock}}</p>
+  <p>קטגוריה: {{book.category | translate}}</p>
+<!--  <p *ngIf="showIsbn">מק"ט: {{book.bookIsbn}}</p>
+  <p *ngIf="!showIsbn">מק"ט: ***********</p>-->
+</div>
+<div class="addToCart" style="grid-area: addToCart;">
+  <div class="quanWrapper" *ngIf="buyMode == 1 || buyMode == 2">
+    <button class="qControl" (click) = "shopC.inc(book)">+</button>
+    <input type="text" class="qDisplay" value="{{book.quantity || 1}}">
+    <button class="qControl" (click) = "shopC.dec(book)">-</button>
+  </div>
+  <button *ngIf="buyMode == 2" class="addToCartB" title="הוסף לעגלה" (click)="shopC.addToCart(book,$event)">הוסף לסל</button>
+</div>
+<div *ngIf="buyMode == 1" class="removeFromCart" style="grid-area: removeFromCart;">
+  <button (click)="shopC.deleteCartItem(book)">הסר</button>
+
+</div>

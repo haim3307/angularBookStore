@@ -1,0 +1,32 @@
+<div id="authorPage">
+  <header>
+    <div class="profileW">
+      <div class="inProfile">
+        <div class="profile"><img width="100%" src = "assets/_img/authors/{{author.profile}}" alt=""></div>
+        <h1>{{author.name}}</h1>
+
+        <div class="proInfo">
+          <span>{{author.desc}}</span>
+          <span>{{author.lDesc}}</span>
+          <h4>שנת לידה: {{author.yearOfBorn}} </h4>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <h2>מספריו של {{author.name}} :</h2>
+    <ul class="list" style="">
+      <li class="bigSize" *ngFor="let book of authBooks" style="width: 300px; height: 450px"> <app-big-size-item [book]="book"></app-big-size-item></li>
+
+    </ul>
+
+
+  </main>
+
+
+
+
+</div>
